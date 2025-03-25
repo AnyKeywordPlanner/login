@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Any Keyword Planner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome Screen with Loading Animation -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <div class="logo">
+                <span class="logo-icon"><i class="fas fa-key"></i></span>
+                <h1>Any Keyword Planner</h1>
+            </div>
+            <div class="loading-animation">
+                <div class="loading-bar"></div>
+                <div class="loading-bar"></div>
+                <div class="loading-bar"></div>
+                <div class="loading-bar"></div>
+            </div>
+            <button class="get-started-btn" id="getStartedBtn">Get Started</button>
+        </div>
+    </div>
+
+    <!-- Auth Container (Login/Signup) -->
+    <div class="auth-container" id="authContainer">
+        <div class="auth-box">
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Login</button>
+                <button class="auth-tab" id="signupTab">Sign Up</button>
+            </div>
+            
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="auth-btn">Login</button>
+                <div class="social-login">
+                    <p>Or login with</p>
+                    <div class="social-icons">
+                        <button type="button" class="social-btn google"><i class="fab fa-google"></i></button>
+                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                        <button type="button" class="social-btn twitter"><i class="fab fa-twitter"></i></button>
+                    </div>
+                </div>
+            </form>
+            
+            <form class="auth-form" id="signupForm">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupConfirmPassword">Confirm Password</label>
+                    <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="auth-btn">Sign Up</button>
+                <div class="terms">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">I agree to the <a href="#">Terms & Conditions</a></label>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div class="app-container" id="appContainer">
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-key"></i></span>
+                    <h1>Any Keyword Planner</h1>
+                </div>
+            </div>
+            <nav class="header-right">
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/40" alt="User" class="profile-img">
+                    <span class="username">John Doe</span>
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <!-- Home Page -->
+            <div class="page active" id="homePage">
+                <div class="search-container">
+                    <h2>Find the Perfect Keywords</h2>
+                    <p>Discover high-performing keywords to boost your SEO strategy</p>
+                    <div class="search-box">
+                        <input type="text" id="keywordInput" placeholder="Enter a keyword...">
+                        <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="search-options">
+                        <div class="option">
+                            <label for="countrySelect">Country:</label>
+                            <select id="countrySelect">
+                                <option value="US">United States</option>
+                                <option value="GB">United Kingdom</option>
+                                <option value="CA">Canada</option>
+                                <option value="AU">Australia</option>
+                                <option value="IN">India</option>
+                                <option value="PK">Pakistan</option>
+                                <!-- Add more countries as needed -->
+                            </select>
+                        </div>
+                        <div class="option">
+                            <label for="languageSelect">Language:</label>
+                            <select id="languageSelect">
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="fr">French</option>
+                                <option value="de">German</option>
+                                <option value="ur">Urdu</option>
+                                <!-- Add more languages as needed -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-container" id="resultsContainer">
+                    <div class="results-header">
+                        <h3>Keyword Suggestions</h3>
+                        <div class="results-actions">
+                            <button class="action-btn export"><i class="fas fa-download"></i> Export</button>
+                            <button class="action-btn save"><i class="fas fa-save"></i> Save</button>
+                        </div>
+                    </div>
+                    <div class="results-table">
+                        <table id="keywordResults">
+                            <thead>
+                                <tr>
+                                    <th>Keyword</th>
+                                    <th>Volume</th>
+                                    <th>Competition</th>
+                                    <th>CPC</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Results will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Page -->
+            <div class="page" id="aboutPage">
+                <div class="about-container">
+                    <h2>About Any Keyword Planner</h2>
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img src="https://via.placeholder.com/500x300" alt="About Us">
+                        </div>
+                        <div class="about-text">
+                            <p>Any Keyword Planner is a powerful tool designed to help marketers, SEO specialists, and content creators find the perfect keywords for their campaigns.</p>
+                            <p>Our advanced algorithm analyzes search patterns and provides you with the most relevant keyword suggestions to improve your online visibility and drive more traffic to your website.</p>
+                            <div class="features">
+                                <div class="feature">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h4>Keyword Analysis</h4>
+                                    <p>Get detailed metrics on search volume, competition, and more.</p>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-globe"></i>
+                                    <h4>Global Coverage</h4>
+                                    <p>Access keyword data from multiple countries and languages.</p>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-rocket"></i>
+                                    <h4>Fast Results</h4>
+                                    <p>Get keyword suggestions in seconds with our optimized system.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Page -->
+            <div class="page" id="contactPage">
+                <div class="contact-container">
+                    <h2>Contact Us</h2>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <h3>Get in Touch</h3>
+                            <p>Have questions or feedback? We'd love to hear from you!</p>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>support@anykeywordplanner.com</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 SEO Street, Digital City, 10001</span>
+                            </div>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <input type="text" id="contactName" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="contactEmail" placeholder="Your Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="contactSubject" placeholder="Subject">
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Any Keyword Planner</h4>
+                    <p>The ultimate tool for keyword research and SEO optimization.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="about">About</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Subscribe</h4>
+                    <p>Get the latest updates and news.</p>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="Your Email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Any Keyword Planner. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
